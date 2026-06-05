@@ -475,7 +475,7 @@ export default function Index() {
               </a>
             </li>
             <li>
-              <a href="#" style={{ color: "inherit", textDecoration: "none" }}>
+              <a href="/about" style={{ color: "inherit", textDecoration: "none" }}>
                 О нас
               </a>
             </li>
