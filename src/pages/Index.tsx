@@ -246,12 +246,12 @@ export default function Index() {
           <a href="/about" onClick={(e) => { e.preventDefault(); window.location.href = "/about"; }}>О нас</a>
           <a href="/contacts" onClick={(e) => { e.preventDefault(); window.location.href = "/contacts"; }}>Контакты</a>
         </nav>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "6px" }}>
-          <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }} onClick={() => window.location.href = "/concert"}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "stretch", gap: "4px", minWidth: 0 }}>
+          <button className="btn-cta" style={{ background: "var(--primary)", color: "white", fontSize: "11px", padding: "6px 10px", whiteSpace: "nowrap" }} onClick={() => window.location.href = "/concert"}>
             Афиша
           </button>
-          <button className="btn-cta" style={{ background: "var(--accent)", color: "var(--dark)", fontSize: "11px", padding: "6px 16px" }} onClick={() => setShowBooking(true)}>
-            Забронировать столик
+          <button className="btn-cta" style={{ background: "var(--accent)", color: "var(--dark)", fontSize: "11px", padding: "6px 10px", whiteSpace: "nowrap" }} onClick={() => setShowBooking(true)}>
+            Забронировать
           </button>
         </div>
       </header>
