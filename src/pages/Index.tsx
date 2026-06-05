@@ -10,6 +10,7 @@ const burgers = [
     price: "390 ₽",
     img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/a75569a9-91ef-4a85-a0e5-29602f9dd940.jpg",
     ingredients: ["Куриная котлета гриль", "Листья салата", "Помидор", "Огурец", "Горчичный соус", "Бриошь-булка"],
+    kcal: 480, protein: 32, fat: 14, carbs: 52,
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const burgers = [
     price: "420 ₽",
     img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/440bc80d-88bf-4c45-a5f7-dc7061ad47a3.jpg",
     ingredients: ["Острая куриная котлета", "Халапеньо", "Красный лук", "Авокадо", "Чили-соус", "Цельнозерновая булка"],
+    kcal: 520, protein: 34, fat: 18, carbs: 48,
   },
   {
     id: 3,
@@ -30,6 +32,7 @@ const burgers = [
     price: "410 ₽",
     img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/8602281f-efc7-4063-901e-60316ac98232.jpg",
     ingredients: ["Куриная котлета гриль", "Руккола", "Вяленые томаты", "Огурец", "Песто без майонеза", "Артизанская булка"],
+    kcal: 460, protein: 30, fat: 13, carbs: 50,
   },
   {
     id: 4,
@@ -40,6 +43,7 @@ const burgers = [
     price: "450 ₽",
     img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/a75569a9-91ef-4a85-a0e5-29602f9dd940.jpg",
     ingredients: ["Двойная куриная котлета", "Чеддер", "Бекон из индейки", "Лук-гриль", "Горчица", "Поджаренная булка"],
+    kcal: 610, protein: 42, fat: 22, carbs: 54,
   },
   {
     id: 5,
@@ -50,6 +54,7 @@ const burgers = [
     price: "370 ₽",
     img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/440bc80d-88bf-4c45-a5f7-dc7061ad47a3.jpg",
     ingredients: ["Куриная котлета на пару", "Айсберг", "Томат черри", "Огурец", "Йогуртовый соус", "Цельнозерновая булка"],
+    kcal: 380, protein: 28, fat: 8, carbs: 44,
   },
   {
     id: 6,
@@ -60,6 +65,7 @@ const burgers = [
     price: "460 ₽",
     img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/8602281f-efc7-4063-901e-60316ac98232.jpg",
     ingredients: ["Куриная котлета угольный гриль", "Болгарский перец гриль", "Руккола", "Пармезан", "Томатный соус", "Фокачча-булка"],
+    kcal: 530, protein: 36, fat: 16, carbs: 55,
   },
   {
     id: 7,
@@ -70,6 +76,7 @@ const burgers = [
     price: "430 ₽",
     img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/a75569a9-91ef-4a85-a0e5-29602f9dd940.jpg",
     ingredients: ["Куриная котлета в панко", "Дайкон", "Морковь по-корейски", "Кинза", "Терияки-соус", "Булка с кунжутом"],
+    kcal: 510, protein: 33, fat: 15, carbs: 58,
   },
   {
     id: 8,
@@ -80,6 +87,7 @@ const burgers = [
     price: "440 ₽",
     img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/440bc80d-88bf-4c45-a5f7-dc7061ad47a3.jpg",
     ingredients: ["Куриная котлета с зеленью", "Фета", "Оливки", "Свежий огурец", "Хумус", "Питта-булка"],
+    kcal: 470, protein: 31, fat: 17, carbs: 46,
   },
   {
     id: 9,
@@ -90,6 +98,7 @@ const burgers = [
     price: "415 ₽",
     img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/8602281f-efc7-4063-901e-60316ac98232.jpg",
     ingredients: ["Куриная котлета гриль", "Шампиньоны гриль", "Шпинат", "Лук-порей", "Сливочно-чесночный соус", "Бриошь"],
+    kcal: 490, protein: 33, fat: 15, carbs: 51,
   },
   {
     id: 10,
@@ -100,8 +109,61 @@ const burgers = [
     price: "455 ₽",
     img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/a75569a9-91ef-4a85-a0e5-29602f9dd940.jpg",
     ingredients: ["Куриная котлета копчёная", "Хрустящий лук", "Томат", "Айсберг", "Домашний BBQ-соус", "Поджаренная булка"],
+    kcal: 560, protein: 38, fat: 19, carbs: 53,
   },
 ];
+
+type Burger = typeof burgers[0];
+
+function BurgerModal({ burger, onClose }: { burger: Burger; onClose: () => void }) {
+  return (
+    <div
+      style={{ position: "fixed", inset: 0, zIndex: 9999, background: "rgba(0,0,0,0.6)", display: "flex", alignItems: "center", justifyContent: "center", padding: "20px" }}
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+    >
+      <div style={{ background: "var(--bg)", border: "var(--border)", boxShadow: "var(--shadow)", width: "100%", maxWidth: "540px", position: "relative", maxHeight: "90vh", overflowY: "auto" }}>
+        <button onClick={onClose} style={{ position: "absolute", top: "12px", right: "16px", background: "none", border: "none", fontSize: "28px", cursor: "pointer", fontWeight: 800, zIndex: 1, lineHeight: 1 }}>×</button>
+
+        <div style={{ position: "relative" }}>
+          <img src={burger.img} alt={burger.name} style={{ width: "100%", height: "260px", objectFit: "cover", display: "block" }} />
+          <span style={{ position: "absolute", top: "16px", left: "16px", background: burger.tagColor, color: burger.tagTextColor ?? "white", padding: "4px 12px", border: "var(--border)", fontWeight: 800, fontSize: "12px", textTransform: "uppercase" }}>
+            {burger.tag}
+          </span>
+        </div>
+
+        <div style={{ padding: "28px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+            <h2 style={{ fontFamily: "'Unbounded', sans-serif", fontSize: "22px", textTransform: "uppercase" }}>{burger.name}</h2>
+            <span className="price">{burger.price}</span>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "8px", marginBottom: "24px" }}>
+            {[
+              { label: "Калории", value: `${burger.kcal} ккал` },
+              { label: "Белки", value: `${burger.protein} г` },
+              { label: "Жиры", value: `${burger.fat} г` },
+              { label: "Углеводы", value: `${burger.carbs} г` },
+            ].map((item) => (
+              <div key={item.label} style={{ background: "var(--dark)", color: "white", padding: "12px 8px", textAlign: "center", border: "var(--border)" }}>
+                <div style={{ fontSize: "15px", fontWeight: 800, marginBottom: "4px" }}>{item.value}</div>
+                <div style={{ fontSize: "11px", color: "#aaa", textTransform: "uppercase" }}>{item.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <h4 style={{ fontWeight: 800, textTransform: "uppercase", fontSize: "13px", marginBottom: "12px" }}>Состав:</h4>
+          <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "6px" }}>
+            {burger.ingredients.map((ing, i) => (
+              <li key={i} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "#555" }}>
+                <span style={{ color: "var(--primary)", fontWeight: 800, fontSize: "16px" }}>—</span> {ing}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function BookingModal({ onClose }: { onClose: () => void }) {
   const [form, setForm] = React.useState({ name: "", surname: "", phone: "", date: "", time: "" });
@@ -233,11 +295,13 @@ function BookingModal({ onClose }: { onClose: () => void }) {
 
 export default function Index() {
   const [showBooking, setShowBooking] = React.useState(false);
+  const [selectedBurger, setSelectedBurger] = React.useState<Burger | null>(null);
 
   return (
     <>
       <div className="grain-overlay" />
       {showBooking && <BookingModal onClose={() => setShowBooking(false)} />}
+      {selectedBurger && <BurgerModal burger={selectedBurger} onClose={() => setSelectedBurger(null)} />}
 
       <header className="header">
         <div className="logo">КУШАЕМ*СЛУШАЕМ</div>
@@ -320,7 +384,7 @@ export default function Index() {
 
           <div className="menu-grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))" }}>
             {burgers.map((burger) => (
-              <div className="menu-card" key={burger.id}>
+              <div className="menu-card" key={burger.id} onClick={() => setSelectedBurger(burger)} style={{ cursor: "pointer" }}>
                 <span className="menu-tag" style={{ background: burger.tagColor, color: burger.tagTextColor }}>
                   {burger.tag}
                 </span>
