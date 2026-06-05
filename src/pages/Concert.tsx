@@ -84,7 +84,7 @@ export default function Concert() {
         <nav style={{ display: "flex", gap: "0" }}>
           <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); }}>Меню</a>
           <a href="#">О нас</a>
-          <a href="#">Контакты</a>
+          <a href="/contacts" onClick={(e) => { e.preventDefault(); navigate("/contacts"); }}>Контакты</a>
         </nav>
         <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }}>
           Афиша

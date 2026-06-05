@@ -111,7 +111,7 @@ export default function Index() {
         <nav style={{ display: "flex" }}>
           <a href="#" onClick={(e) => { e.preventDefault(); document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" }); }}>Меню</a>
           <a href="#">О нас</a>
-          <a href="#">Контакты</a>
+          <a href="/contacts" onClick={(e) => { e.preventDefault(); window.location.href = "/contacts"; }}>Контакты</a>
         </nav>
         <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }} onClick={() => window.location.href = "/concert"}>
           Афиша
@@ -271,7 +271,7 @@ export default function Index() {
               </a>
             </li>
             <li>
-              <a href="#" style={{ color: "inherit", textDecoration: "none" }}>
+              <a href="/contacts" style={{ color: "inherit", textDecoration: "none" }}>
                 Контакты
               </a>
             </li>
