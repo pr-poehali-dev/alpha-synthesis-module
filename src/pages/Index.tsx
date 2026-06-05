@@ -133,7 +133,7 @@ export default function Index() {
               <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }} onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}>
                 Смотреть меню
               </button>
-              <button className="btn-cta" style={{ background: "white" }}>
+              <button className="btn-cta" style={{ background: "white" }} onClick={() => window.location.href = "/team"}>
                 Наш состав
               </button>
             </div>
