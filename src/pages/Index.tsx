@@ -147,6 +147,15 @@ export default function Index() {
             <div className="floating-tag hidden md:block" style={{ top: "20%", left: "10%" }}>
               #ЗДОРОВО
             </div>
+            <div className="floating-tag hidden md:block" style={{ top: "35%", left: "10%" }}>
+              #ЖИВАЯМУЗЫКА
+            </div>
+            <div className="floating-tag hidden md:block" style={{ top: "50%", left: "10%" }}>
+              #ЗДОРОВЬЕ
+            </div>
+            <div className="floating-tag hidden md:block" style={{ top: "65%", left: "10%" }}>
+              #ВАЙБ
+            </div>
             <div className="floating-tag hidden md:block" style={{ bottom: "30%", right: "20%" }}>
               ВКУСНО
             </div>
