@@ -1,3 +1,5 @@
+import React from "react";
+
 const burgers = [
   {
     id: 1,
@@ -101,10 +103,141 @@ const burgers = [
   },
 ];
 
+function BookingModal({ onClose }: { onClose: () => void }) {
+  const [form, setForm] = React.useState({ name: "", surname: "", phone: "", date: "", time: "" });
+  const [sent, setSent] = React.useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSent(true);
+  };
+
+  return (
+    <div
+      style={{
+        position: "fixed", inset: 0, zIndex: 9999,
+        background: "rgba(0,0,0,0.6)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        padding: "20px",
+      }}
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+    >
+      <div
+        style={{
+          background: "var(--bg)",
+          border: "var(--border)",
+          boxShadow: "var(--shadow)",
+          padding: "40px",
+          width: "100%",
+          maxWidth: "480px",
+          position: "relative",
+        }}
+      >
+        <button
+          onClick={onClose}
+          style={{
+            position: "absolute", top: "16px", right: "16px",
+            background: "none", border: "none", fontSize: "24px",
+            cursor: "pointer", fontWeight: 800, lineHeight: 1,
+          }}
+        >×</button>
+
+        {sent ? (
+          <div style={{ textAlign: "center", padding: "20px 0" }}>
+            <div style={{ fontSize: "48px", marginBottom: "16px" }}>🎉</div>
+            <h3 style={{ fontFamily: "'Unbounded', sans-serif", fontSize: "22px", marginBottom: "12px", textTransform: "uppercase" }}>
+              Столик забронирован!
+            </h3>
+            <p style={{ color: "#666", lineHeight: 1.6 }}>
+              Ждём вас, {form.name}! Если что-то изменится — звоните нам.
+            </p>
+            <button className="btn-cta" style={{ marginTop: "24px", background: "var(--primary)", color: "white" }} onClick={onClose}>
+              Закрыть
+            </button>
+          </div>
+        ) : (
+          <>
+            <h3 style={{ fontFamily: "'Unbounded', sans-serif", fontSize: "20px", textTransform: "uppercase", marginBottom: "24px" }}>
+              Забронировать столик
+            </h3>
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+                <div>
+                  <label style={{ fontSize: "12px", fontWeight: 800, textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Имя</label>
+                  <input
+                    required
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    placeholder="Иван"
+                    style={{ width: "100%", padding: "10px 12px", border: "var(--border)", background: "white", fontFamily: "inherit", fontSize: "14px" }}
+                  />
+                </div>
+                <div>
+                  <label style={{ fontSize: "12px", fontWeight: 800, textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Фамилия</label>
+                  <input
+                    required
+                    value={form.surname}
+                    onChange={(e) => setForm({ ...form, surname: e.target.value })}
+                    placeholder="Иванов"
+                    style={{ width: "100%", padding: "10px 12px", border: "var(--border)", background: "white", fontFamily: "inherit", fontSize: "14px" }}
+                  />
+                </div>
+              </div>
+              <div>
+                <label style={{ fontSize: "12px", fontWeight: 800, textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Номер телефона</label>
+                <input
+                  required
+                  type="tel"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  placeholder="+7 900 000-00-00"
+                  style={{ width: "100%", padding: "10px 12px", border: "var(--border)", background: "white", fontFamily: "inherit", fontSize: "14px" }}
+                />
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+                <div>
+                  <label style={{ fontSize: "12px", fontWeight: 800, textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Дата</label>
+                  <input
+                    required
+                    type="date"
+                    value={form.date}
+                    onChange={(e) => setForm({ ...form, date: e.target.value })}
+                    style={{ width: "100%", padding: "10px 12px", border: "var(--border)", background: "white", fontFamily: "inherit", fontSize: "14px" }}
+                  />
+                </div>
+                <div>
+                  <label style={{ fontSize: "12px", fontWeight: 800, textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Время</label>
+                  <input
+                    required
+                    type="time"
+                    value={form.time}
+                    onChange={(e) => setForm({ ...form, time: e.target.value })}
+                    style={{ width: "100%", padding: "10px 12px", border: "var(--border)", background: "white", fontFamily: "inherit", fontSize: "14px" }}
+                  />
+                </div>
+              </div>
+              <button
+                type="submit"
+                className="btn-cta"
+                style={{ background: "var(--primary)", color: "white", marginTop: "8px", fontSize: "14px", padding: "14px" }}
+              >
+                Забронировать
+              </button>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Index() {
+  const [showBooking, setShowBooking] = React.useState(false);
+
   return (
     <>
       <div className="grain-overlay" />
+      {showBooking && <BookingModal onClose={() => setShowBooking(false)} />}
 
       <header className="header">
         <div className="logo">КУШАЕМ*СЛУШАЕМ</div>
@@ -113,9 +246,14 @@ export default function Index() {
           <a href="/about" onClick={(e) => { e.preventDefault(); window.location.href = "/about"; }}>О нас</a>
           <a href="/contacts" onClick={(e) => { e.preventDefault(); window.location.href = "/contacts"; }}>Контакты</a>
         </nav>
-        <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }} onClick={() => window.location.href = "/concert"}>
-          Афиша
-        </button>
+        <div style={{ display: "flex", gap: "8px" }}>
+          <button className="btn-cta" style={{ background: "var(--accent)", color: "var(--dark)" }} onClick={() => setShowBooking(true)}>
+            Забронировать
+          </button>
+          <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }} onClick={() => window.location.href = "/concert"}>
+            Афиша
+          </button>
+        </div>
       </header>
 
       <main>
