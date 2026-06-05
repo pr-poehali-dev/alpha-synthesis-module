@@ -421,9 +421,7 @@ export default function Index() {
               Мы верим: вкусная еда должна быть честной. Никакого майонеза, никаких скрытых добавок — только куриное мясо,
               свежие овощи и настоящие соусы. А пока ты ешь — играет живая музыка. Просто приходи с аппетитом.
             </p>
-            <button className="btn-cta" style={{ background: "var(--dark)", color: "white", borderColor: "white" }}>
-              Наша история
-            </button>
+
           </div>
           <div className="vibe-img"></div>
         </section>
