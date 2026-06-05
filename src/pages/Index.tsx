@@ -108,13 +108,14 @@ export default function Index() {
 
       <header className="header">
         <div className="logo">КУШАЕМ*СЛУШАЕМ</div>
-        <nav>
-          <a href="#">Меню</a>
+        <nav style={{ display: "flex" }}>
+          <a href="#" onClick={(e) => { e.preventDefault(); document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" }); }}>Меню</a>
           <a href="#">О нас</a>
-          <a href="#">Состав</a>
           <a href="#">Контакты</a>
         </nav>
-        <button className="btn-cta">Заказать</button>
+        <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }} onClick={() => window.location.href = "/concert"}>
+          Афиша
+        </button>
       </header>
 
       <main>
