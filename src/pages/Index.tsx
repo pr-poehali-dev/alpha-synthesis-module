@@ -329,7 +329,7 @@ export default function Index() {
               ТОЛЬКО <span>ВКУС</span>
             </h1>
             <p className="text-base md:text-lg lg:text-xl mb-8 md:mb-10 leading-relaxed text-[#555]">
-              Куриные бургеры без майонеза и вредных соусов. Только натуральные ингредиенты, живая музыка и атмосфера настоящего дайнера.
+              Куриные бургеры без майонеза и вредных соусов. Только натуральные ингредиенты и атмосфера настоящего дайнера. А пока ты ешь — на сцене живая музыка: джаз, соул и фанк каждую пятницу и субботу.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
               <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }} onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}>
