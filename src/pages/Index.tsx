@@ -1,159 +1,213 @@
+const burgers = [
+  {
+    id: 1,
+    name: "Классика",
+    tag: "Хит продаж",
+    tagColor: "var(--primary)",
+    tagTextColor: "white",
+    price: "390 ₽",
+    img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/a75569a9-91ef-4a85-a0e5-29602f9dd940.jpg",
+    ingredients: ["Куриная котлета гриль", "Листья салата", "Помидор", "Огурец", "Горчичный соус", "Бриошь-булка"],
+  },
+  {
+    id: 2,
+    name: "Острый Петух",
+    tag: "Огонь",
+    tagColor: "var(--secondary)",
+    tagTextColor: "white",
+    price: "420 ₽",
+    img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/440bc80d-88bf-4c45-a5f7-dc7061ad47a3.jpg",
+    ingredients: ["Острая куриная котлета", "Халапеньо", "Красный лук", "Авокадо", "Чили-соус", "Цельнозерновая булка"],
+  },
+  {
+    id: 3,
+    name: "Зелёный вайб",
+    tag: "Популярное",
+    tagColor: "var(--accent)",
+    tagTextColor: "var(--dark)",
+    price: "410 ₽",
+    img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/8602281f-efc7-4063-901e-60316ac98232.jpg",
+    ingredients: ["Куриная котлета гриль", "Руккола", "Вяленые томаты", "Огурец", "Песто без майонеза", "Артизанская булка"],
+  },
+  {
+    id: 4,
+    name: "Сырный босс",
+    tag: "Новинка",
+    tagColor: "#ff9800",
+    tagTextColor: "white",
+    price: "450 ₽",
+    img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/a75569a9-91ef-4a85-a0e5-29602f9dd940.jpg",
+    ingredients: ["Двойная куриная котлета", "Чеддер", "Бекон из индейки", "Лук-гриль", "Горчица", "Поджаренная булка"],
+  },
+  {
+    id: 5,
+    name: "Лёгкий ветер",
+    tag: "Лёгкий",
+    tagColor: "#4caf50",
+    tagTextColor: "white",
+    price: "370 ₽",
+    img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/440bc80d-88bf-4c45-a5f7-dc7061ad47a3.jpg",
+    ingredients: ["Куриная котлета на пару", "Айсберг", "Томат черри", "Огурец", "Йогуртовый соус", "Цельнозерновая булка"],
+  },
+  {
+    id: 6,
+    name: "Гриль-мастер",
+    tag: "Шеф рекомендует",
+    tagColor: "var(--primary)",
+    tagTextColor: "white",
+    price: "460 ₽",
+    img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/8602281f-efc7-4063-901e-60316ac98232.jpg",
+    ingredients: ["Куриная котлета угольный гриль", "Болгарский перец гриль", "Руккола", "Пармезан", "Томатный соус", "Фокачча-булка"],
+  },
+  {
+    id: 7,
+    name: "Азиатский бит",
+    tag: "Экзотика",
+    tagColor: "var(--secondary)",
+    tagTextColor: "white",
+    price: "430 ₽",
+    img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/a75569a9-91ef-4a85-a0e5-29602f9dd940.jpg",
+    ingredients: ["Куриная котлета в панко", "Дайкон", "Морковь по-корейски", "Кинза", "Терияки-соус", "Булка с кунжутом"],
+  },
+  {
+    id: 8,
+    name: "Средиземноморец",
+    tag: "Нежный",
+    tagColor: "#00bcd4",
+    tagTextColor: "white",
+    price: "440 ₽",
+    img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/440bc80d-88bf-4c45-a5f7-dc7061ad47a3.jpg",
+    ingredients: ["Куриная котлета с зеленью", "Фета", "Оливки", "Свежий огурец", "Хумус", "Питта-булка"],
+  },
+  {
+    id: 9,
+    name: "Грибной лес",
+    tag: "Сезонный",
+    tagColor: "#795548",
+    tagTextColor: "white",
+    price: "415 ₽",
+    img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/8602281f-efc7-4063-901e-60316ac98232.jpg",
+    ingredients: ["Куриная котлета гриль", "Шампиньоны гриль", "Шпинат", "Лук-порей", "Сливочно-чесночный соус", "Бриошь"],
+  },
+  {
+    id: 10,
+    name: "Барбекю-гитара",
+    tag: "Дымный",
+    tagColor: "#e91e63",
+    tagTextColor: "white",
+    price: "455 ₽",
+    img: "https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/a75569a9-91ef-4a85-a0e5-29602f9dd940.jpg",
+    ingredients: ["Куриная котлета копчёная", "Хрустящий лук", "Томат", "Айсберг", "Домашний BBQ-соус", "Поджаренная булка"],
+  },
+];
+
 export default function Index() {
   return (
     <>
       <div className="grain-overlay" />
 
       <header className="header">
-        <div className="logo">VINYL*DINER</div>
+        <div className="logo">КУШАЕМ*СЛУШАЕМ</div>
         <nav>
           <a href="#">Меню</a>
           <a href="#">О нас</a>
-          <a href="#">Афиша</a>
-          <a href="#">Адреса</a>
+          <a href="#">Состав</a>
+          <a href="#">Контакты</a>
         </nav>
-        <button className="btn-cta">Забронировать</button>
+        <button className="btn-cta">Заказать</button>
       </header>
 
       <main>
         <section className="hero">
           <div className="hero-content">
             <h1 className="hero-title">
-              БЕЗ ПОНТОВ,
+              БЕЗ ВРЕДА,
               <br />
               ТОЛЬКО <span>ВКУС</span>
             </h1>
             <p className="text-base md:text-lg lg:text-xl mb-8 md:mb-10 leading-relaxed text-[#555]">
-              Эстетика 70-х в современной подаче. Локальные продукты, огненные блюда и атмосфера для настоящих ценителей.
+              Куриные бургеры без майонеза и вредных соусов. Только натуральные ингредиенты, живая музыка и атмосфера настоящего дайнера.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
               <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }}>
-                Заказать
+                Смотреть меню
               </button>
               <button className="btn-cta" style={{ background: "white" }}>
-                Смотреть меню
+                Наш состав
               </button>
             </div>
           </div>
           <div className="hero-img">
             <div className="sticker">
-              СВЕЖАК
+              БЕЗ
               <br />
-              КАЖДЫЙ ДЕНЬ
+              МАЙОНЕЗА!
             </div>
             <div className="floating-tag hidden md:block" style={{ top: "20%", left: "10%" }}>
-              #ЭСТЕТИКА
+              #ЗДОРОВО
             </div>
             <div className="floating-tag hidden md:block" style={{ bottom: "30%", right: "20%" }}>
-              ОГОНЬ
+              ВКУСНО
             </div>
           </div>
         </section>
 
         <div className="marquee">
           <div className="marquee-content">
-            &nbsp; * БУРГЕРЫ КОТОРЫЕ РВУТ * КРАФТОВЫЕ КОКТЕЙЛИ * ТОЛЬКО РЕТРО ВАЙБ * ОТКРЫТЫ ДО 2:00 * ЛУЧШИЕ В ГОРОДЕ *
-            БУРГЕРЫ КОТОРЫЕ РВУТ * КРАФТОВЫЕ КОКТЕЙЛИ * ТОЛЬКО РЕТРО ВАЙБ * ОТКРЫТЫ ДО 2:00 * ЛУЧШИЕ В ГОРОДЕ
+            &nbsp; * КУРИНЫЕ БУРГЕРЫ * БЕЗ МАЙОНЕЗА * ТОЛЬКО НАТУРАЛЬНОЕ * ЖИВАЯ МУЗЫКА * КУШАЕМ И СЛУШАЕМ *
+            КУРИНЫЕ БУРГЕРЫ * БЕЗ МАЙОНЕЗА * ТОЛЬКО НАТУРАЛЬНОЕ * ЖИВАЯ МУЗЫКА * КУШАЕМ И СЛУШАЕМ
           </div>
         </div>
 
         <section className="section-padding">
           <div className="section-header">
-            <h2 className="section-title">ВЫБОР ШЕФА</h2>
-            <a
-              href="#"
+            <h2 className="section-title">НАШЕ МЕНЮ</h2>
+            <span
               className="text-sm md:text-base"
               style={{ color: "var(--dark)", fontWeight: 800, textTransform: "uppercase" }}
             >
-              Всё меню
-            </a>
+              10 бургеров
+            </span>
           </div>
 
-          <div className="menu-grid">
-            {/* Item 1 */}
-            <div className="menu-card">
-              <span className="menu-tag">Хит продаж</span>
-              <img
-                src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Классический бургер"
-              />
-              <div className="menu-card-body">
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <h3>Классика</h3>
-                  <span className="price">1 400 ₽</span>
+          <div className="menu-grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))" }}>
+            {burgers.map((burger) => (
+              <div className="menu-card" key={burger.id}>
+                <span className="menu-tag" style={{ background: burger.tagColor, color: burger.tagTextColor }}>
+                  {burger.tag}
+                </span>
+                <img src={burger.img} alt={burger.name} />
+                <div className="menu-card-body">
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      marginBottom: "10px",
+                    }}
+                  >
+                    <h3>{burger.name}</h3>
+                    <span className="price">{burger.price}</span>
+                  </div>
+                  <ul style={{ fontSize: "13px", color: "#666", listStyle: "none", padding: 0, margin: 0, lineHeight: 1.8 }}>
+                    {burger.ingredients.map((ing, i) => (
+                      <li key={i} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                        <span style={{ color: "var(--primary)", fontWeight: 800 }}>—</span> {ing}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <p style={{ fontSize: "14px", color: "#666" }}>
-                  Тройной смэш из мраморной говядины, фирменный соус, маринованные огурцы на бриоши.
-                </p>
               </div>
-            </div>
-
-            {/* Item 2 */}
-            <div className="menu-card">
-              <span className="menu-tag" style={{ background: "var(--secondary)" }}>
-                Острое
-              </span>
-              <img
-                src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Неоновая пицца"
-              />
-              <div className="menu-card-body">
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <h3>Электро Пепперони</h3>
-                  <span className="price">1 800 ₽</span>
-                </div>
-                <p style={{ fontSize: "14px", color: "#666" }}>Двойная пепперони, острый мёд, тесто на закваске.</p>
-              </div>
-            </div>
-
-            {/* Item 3 */}
-            <div className="menu-card">
-              <span className="menu-tag" style={{ background: "var(--accent)", color: "var(--dark)" }}>
-                Популярное
-              </span>
-              <img
-                src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Диско Сауэр"
-              />
-              <div className="menu-card-body">
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <h3>Диско Сауэр</h3>
-                  <span className="price">1 200 ₽</span>
-                </div>
-                <p style={{ fontSize: "14px", color: "#666" }}>
-                  Джин, цветок бузины, голубой чай и съедобная золотая пыльца.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
         <section className="retro-vibe">
           <div>
-            <h2 className="vibe-title">ВАЙБ-ЧЕК ПРОЙДЕН.</h2>
+            <h2 className="vibe-title">ЕДА + МУЗЫКА = КАЙФ.</h2>
             <p className="vibe-text">
-              Мы не просто кормим. Мы создаём моменты. От плейлиста хип-хопа 90-х до диванов в стиле 70-х — каждый уголок
-              продуман для твоего идеального кадра. Бронь не нужна, просто приходи с настроением.
+              Мы верим: вкусная еда должна быть честной. Никакого майонеза, никаких скрытых добавок — только куриное мясо,
+              свежие овощи и настоящие соусы. А пока ты ешь — играет живая музыка. Просто приходи с аппетитом.
             </p>
             <button className="btn-cta" style={{ background: "var(--dark)", color: "white", borderColor: "white" }}>
               Наша история
@@ -164,31 +218,31 @@ export default function Index() {
 
         <section className="section-padding">
           <h2 className="section-title" style={{ marginBottom: "40px", textAlign: "center" }}>
-            @VINYL.DINER
+            @KUSHАЕМ.СЛУШАЕМ
           </h2>
           <div className="social-grid">
             <div className="social-item">
               <img
-                src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                alt="Инста 1"
+                src="https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/a75569a9-91ef-4a85-a0e5-29602f9dd940.jpg"
+                alt="Фото 1"
               />
             </div>
             <div className="social-item">
               <img
-                src="https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                alt="Инста 2"
+                src="https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/440bc80d-88bf-4c45-a5f7-dc7061ad47a3.jpg"
+                alt="Фото 2"
               />
             </div>
             <div className="social-item">
               <img
-                src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                alt="Инста 3"
+                src="https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/8602281f-efc7-4063-901e-60316ac98232.jpg"
+                alt="Фото 3"
               />
             </div>
             <div className="social-item">
               <img
-                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                alt="Инста 4"
+                src="https://cdn.poehali.dev/projects/ac53f79e-b0ae-4cb2-8fcc-a0300755e8f3/files/a75569a9-91ef-4a85-a0e5-29602f9dd940.jpg"
+                alt="Фото 4"
               />
             </div>
           </div>
@@ -197,9 +251,9 @@ export default function Index() {
 
       <footer>
         <div>
-          <div className="footer-logo">VINYL*DINER</div>
+          <div className="footer-logo">КУШАЕМ*СЛУШАЕМ</div>
           <p style={{ color: "#666", lineHeight: 1.6 }}>
-            Твоё место для еды высокого качества и лоу-фай атмосферы. С 2024, но ощущается как 1974.
+            Куриные бургеры без вредных соусов и с живой музыкой. Честная еда для честных людей.
           </p>
         </div>
         <div className="footer-links">
@@ -217,12 +271,12 @@ export default function Index() {
             </li>
             <li>
               <a href="#" style={{ color: "inherit", textDecoration: "none" }}>
-                Политика
+                Состав
               </a>
             </li>
             <li>
               <a href="#" style={{ color: "inherit", textDecoration: "none" }}>
-                Условия
+                Контакты
               </a>
             </li>
           </ul>
@@ -230,16 +284,24 @@ export default function Index() {
         <div className="footer-links">
           <h4>Часы работы</h4>
           <ul>
-            <li>Вт-Чт: 12:00 - 23:00</li>
-            <li>Пт-Сб: 12:00 - 02:00</li>
-            <li>Вс: 11:00 - 21:00</li>
-            <li>Пн: Выходной</li>
+            <li>Пн–Пт: 11:00–22:00</li>
+            <li>Сб–Вс: 10:00–23:00</li>
           </ul>
         </div>
-        <div className="footer-bottom">
-          <span>2025 VINYL DINER</span>
-          <span>ВКУС КЛАССИКИ</span>
-          <span>IG / TW / TK</span>
+        <div className="footer-links">
+          <h4>Контакты</h4>
+          <ul>
+            <li>
+              <a href="tel:+78001234567" style={{ color: "inherit", textDecoration: "none" }}>
+                8 800 123-45-67
+              </a>
+            </li>
+            <li>
+              <a href="mailto:hi@kushaem-slushaem.ru" style={{ color: "inherit", textDecoration: "none" }}>
+                hi@kushaem-slushaem.ru
+              </a>
+            </li>
+          </ul>
         </div>
       </footer>
     </>
