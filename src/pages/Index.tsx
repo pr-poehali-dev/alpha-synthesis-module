@@ -129,7 +129,7 @@ export default function Index() {
               Куриные бургеры без майонеза и вредных соусов. Только натуральные ингредиенты, живая музыка и атмосфера настоящего дайнера.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
-              <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }}>
+              <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }} onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}>
                 Смотреть меню
               </button>
               <button className="btn-cta" style={{ background: "white" }}>
@@ -159,7 +159,7 @@ export default function Index() {
           </div>
         </div>
 
-        <section className="section-padding">
+        <section className="section-padding" id="menu">
           <div className="section-header">
             <h2 className="section-title">НАШЕ МЕНЮ</h2>
             <span
