@@ -13,7 +13,7 @@ export default function Contacts() {
         </div>
         <nav style={{ display: "flex" }}>
           <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); }}>Меню</a>
-          <a href="#">О нас</a>
+          <a href="/about" onClick={(e) => { e.preventDefault(); navigate("/about"); }}>О нас</a>
           <a href="/contacts" onClick={(e) => { e.preventDefault(); navigate("/contacts"); }}>Контакты</a>
         </nav>
         <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }} onClick={() => navigate("/concert")}>
