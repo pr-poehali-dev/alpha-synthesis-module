@@ -40,7 +40,7 @@ export default function About() {
                 "url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80') center/cover",
             }}
           >
-            <div className="sticker">С<br />2024!</div>
+            <div className="sticker">РАБОТАЕМ<br />С 2008</div>
           </div>
         </section>
 
@@ -107,7 +107,7 @@ export default function About() {
                   color: "var(--accent)",
                 }}
               >
-                «Кушаем да слушаем здоровую еду»
+                «Кушаем здоровую еду, слушаем здоровую музыку»
               </p>
             </div>
 
