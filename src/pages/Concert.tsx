@@ -7,6 +7,7 @@ const artists = [
     genre: "Soul / Funk",
     date: "14 июня, пятница",
     time: "20:00",
+    sortDate: new Date("2025-06-14T20:00"),
     description: "Легендарный квартет из Москвы. Живой фанк, Hammond орган и медные духовые — атмосфера чистых 70-х.",
     tag: "Аншлаг",
     tagColor: "var(--primary)",
@@ -17,6 +18,7 @@ const artists = [
     genre: "Jazz / Neo-soul",
     date: "21 июня, пятница",
     time: "21:00",
+    sortDate: new Date("2025-06-21T21:00"),
     description: "Нежный джаз с нотками нео-сула. Голос Лены и контрабас создают атмосферу уютного летнего вечера.",
     tag: "Новый артист",
     tagColor: "var(--secondary)",
@@ -27,6 +29,7 @@ const artists = [
     genre: "Retro Pop / Rock",
     date: "28 июня, пятница",
     time: "20:30",
+    sortDate: new Date("2025-06-28T20:30"),
     description: "Хиты 60-х и 70-х в живом исполнении. Пять музыкантов, которые знают, как поднять настроение.",
     tag: "Популярно",
     tagColor: "var(--accent)",
@@ -38,6 +41,7 @@ const artists = [
     genre: "Disco / Electronic",
     date: "5 июля, суббота",
     time: "22:00",
+    sortDate: new Date("2025-07-05T22:00"),
     description: "Диско-сеты на виниле. Настоящий проигрыватель, настоящий звук — танцы до закрытия.",
     tag: "Ночной сет",
     tagColor: "#e91e63",
@@ -48,6 +52,7 @@ const artists = [
     genre: "Acoustic / Folk",
     date: "12 июля, суббота",
     time: "19:00",
+    sortDate: new Date("2025-07-12T19:00"),
     description: "Акустический дуэт с авторскими песнями. Тихий, душевный вечер с гитарой и историями.",
     tag: "Камерно",
     tagColor: "#4caf50",
@@ -58,11 +63,12 @@ const artists = [
     genre: "Blues / Rock",
     date: "19 июля, пятница",
     time: "21:00",
+    sortDate: new Date("2025-07-19T21:00"),
     description: "Тяжёлый блюз и рок. Три гитары, барабаны и голос, который пробирает до мурашек.",
     tag: "Горячо",
     tagColor: "#ff9800",
   },
-];
+].sort((a, b) => a.sortDate.getTime() - b.sortDate.getTime());
 
 export default function Concert() {
   const navigate = useNavigate();
